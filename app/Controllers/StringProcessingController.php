@@ -35,9 +35,4 @@ class StringProcessingController extends Controller
         $postParams = $request->getParsedBody();
         return $this->stringHandler->process($postParams['string']);
     }
-
-    public function test()
-    {
-        return 'test passed';
-    }
 }

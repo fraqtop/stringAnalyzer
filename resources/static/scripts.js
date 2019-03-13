@@ -21,11 +21,6 @@ window.onload = function () {
                     result = await response.text();
                 }
                 this.answer = result;
-            },
-            async test() {
-                let result = await fetch('/test');
-                result = await result.text();
-                this.answer = result;
             }
         }
     });
