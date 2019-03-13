@@ -13,10 +13,20 @@ class PalindromeFinder implements IStringHandler
 {
     private $stringLength;
 
+    /**
+     * sets label to submit button.
+     */
+
     public function getSubmitLabel(): string
     {
         return 'find palindromes';
     }
+
+    /**
+     * Transforms string to lowercase,
+     * creates queue for comfortable processing
+     * and initializes the main loop.
+     */
 
     public function process($string): string
     {
@@ -43,6 +53,10 @@ class PalindromeFinder implements IStringHandler
         return $this->getConclusion($result);
     }
 
+    /**
+     *Compares symbols while they are equal.
+     */
+
     private function getPalindrome($string, $leftBorder, $rightBorder)
     {
         while ($leftBorder['index'] >= 0 && $rightBorder['index'] < $this->stringLength) {
@@ -57,6 +71,10 @@ class PalindromeFinder implements IStringHandler
         $rightBorder = $this->getChar($string, $rightBorder['index'] - 1, true)['index'];
         return mb_substr($string, $leftBorder, ($rightBorder - $leftBorder) + 1);
     }
+
+    /**
+     * Wrapper for mutibyte string symbols fetching. Helps to skip waste symbols.
+     */
 
     private function getChar(string $string, int $index, bool $backwards = false)
     {
@@ -83,6 +101,10 @@ class PalindromeFinder implements IStringHandler
         $serviceMarks = [' ', ',', '.', '!', '?'];
         return in_array($char, $serviceMarks);
     }
+
+    /**
+     *Generates comfortable answer for frontend.
+     */
 
     private function getConclusion($result): string
     {
