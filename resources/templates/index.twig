@@ -1,0 +1,25 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+    <div class="main">
+        <h2>Enter your string for processing</h2>
+        <form class="form">
+            <input
+                    class="form-control col"
+                    placeholder="your string value here"
+                    id="stringValueInput"
+                    v-model="stringValue"
+                    required
+            >
+            <button
+                    class="form-control btn btn-dark col"
+                    v-on:click="processData"
+            >
+                {{ submit_label }}
+            </button>
+        </form>
+    </div>
+    <div v-cloak id="answer">
+            <h4>[[answer]]</h4>
+    </div>
+{% endblock %}
