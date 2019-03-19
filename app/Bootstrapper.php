@@ -23,5 +23,4 @@ class Bootstrapper
     {
         return new TwigRenderer();
     }
-
 }
