@@ -3,6 +3,7 @@ require 'vendor/autoload.php';
 
 use App\Bootstrapper;
 
+
 $router = Bootstrapper::getRoutingEngine();
 
 $router->get('/', 'StringProcessingController#getIndexPage');

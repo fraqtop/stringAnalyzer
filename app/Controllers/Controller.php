@@ -14,13 +14,13 @@ abstract class Controller
 {
     protected $templateEngine;
 
+    public static function getInstance()
+    {
+        return new StringProcessingController(Bootstrapper::getProcessor());
+    }
+
     public function __construct()
     {
         $this->templateEngine = Bootstrapper::getRenderer();
-    }
-
-    public static function getInstance()
-    {
-        return new StringProcessingController(new PalindromeFinder());
     }
 }

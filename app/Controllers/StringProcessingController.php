@@ -17,12 +17,6 @@ class StringProcessingController extends Controller
      */
     private $stringHandler;
 
-    public function __construct(IStringHandler $handler)
-    {
-        parent::__construct();
-        $this->stringHandler = $handler;
-    }
-
     public function getIndexPage()
     {
         return $this->templateEngine->render('index.twig', [
@@ -34,5 +28,11 @@ class StringProcessingController extends Controller
     {
         $postParams = $request->getParsedBody();
         return $this->stringHandler->process($postParams['string']);
+    }
+
+    public function __construct(IStringHandler $handler)
+    {
+        parent::__construct();
+        $this->stringHandler = $handler;
     }
 }
